@@ -51,8 +51,8 @@
 3. Device can be controlled with MQTT messages and onboard touch button.
 
 4. Onboard LED:
-		If WiFi LED is on then light is off
-		Touch button LED will be on with light on
+		- If WiFi LED is on then light is off
+		- Touch button LED will be on with light on
 
 - An alternative method for finding your device is to scan your mDNS network
 
