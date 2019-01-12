@@ -9,13 +9,13 @@
 -------------------------------------------------------------------------------------------------------------
 ## Features
 
-- Custom firmware to take greater control and integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system.
+- Custom firmware to integrate with an MQTT Broker. The Broker would typically integrate with your Home Automation system
 
-- Device will respond to an MQTT message and onboard touch switch.
+- Device will respond to MQTT messages and onboard Touch Switch
 
-- WiFi or MQTT drop outs are handled automatically.
+- WiFi or MQTT drop outs are handled automatically
 
-- You can set a periodic reboot option to keep things fresh.
+- You can set a periodic reboot option to keep things fresh
 
 -------------------------------------------------------------------------------------------------------------
 ## Version
@@ -59,29 +59,15 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Debug - Serial/Telnet output
-	You have two options after turning on SERIAL_DEBUG within MultiSensor\src\User.h:
+	You have two options after turning on SERIAL_DEBUG within sonoff_LightSwitch\src\User.h:
 		- Serial USB if connected
 		- Telnet if connected
 
 **Do not leave SERIAL_DEBUG enabled for normal use**
 
 -------------------------------------------------------------------------------------------------------------
-## Pin Connections 
-Project was developed on a **Wemos D1 mini pro** board. I like this boards form-factor and its ease of use. 
-
-Sensors can be hooked up as follows:
-- D1 Pin for Temperature sensor (DHT22)
-- D2 Pin for Motion sensor (HC-SR501)
-- D5 Pin for door/window sensor 1 (Reed)
-- D6 Pin for door/window sensor 2
-- D7 Pin for door/window sensor 3
-- D8 Pin for door/window sensor 4
-
-These can be reconfigured within MultiSensor\src\User.h.
-
--------------------------------------------------------------------------------------------------------------
 ## OTA Firmware Updates
-Once device is connected to your WiFi, find its IP and connect to it through using a Browser. User/Password are stored in Multiensor/src/User.h and you can always modify and flash new firmware to change it. Follow on screen firmware update instructions to flash new firmware.
+Once device is connected to your WiFi, find its IP and connect to it through using a Browser. User/Password are stored in sonoff_LightSwitch/src/User.h and you can always modify and flash new firmware to change it. Follow on screen firmware update instructions to flash new firmware.
 
 -------------------------------------------------------------------------------------------------------------
 - I am simply reusing other peoples amazing work for instance the following libraries:
