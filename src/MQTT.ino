@@ -7,6 +7,8 @@ boolean MQTTconnect() {
 
   if (MQTTclient.connect(deviceID, mqtt_user, mqtt_password)) {   
   	MQTTclient.subscribe(mqtt_inTopic);
+  	MQTTclient.subscribe(IP_REQUEST);
+  	
 #ifdef SERIAL_DEBUG
     debug("..MQTT connected and subscribed to "); debugln(mqtt_inTopic);
 #endif
@@ -27,6 +29,21 @@ void callback(char* topic, byte* payload, unsigned int length) {
   debugln("In MQTT Callback()");
   debug("..Message arrived ["); debug(topic); debugln("] ");
 #endif
+
+  if (strcmp(topic, IP_REQUEST) == 0) {                                // Check if we want this message
+
+  	String replyMessage = IP_REPLY;                                  // Build the MQTT reply messsage name
+  	replyMessage.concat(deviceID);                                   // ...
+
+  	String Msg = WiFi.localIP().toString();                          // Build MQTT message payload contents
+
+#ifdef SERIAL_DEBUG
+	debugAln("MQTT Publish %s with payload %s", replyMessage.c_str(), Msg.c_str());
+#endif
+
+		MQTTclient.publish(replyMessage.c_str(), Msg.c_str());		       // Publish message to Broker
+		return;
+	}
 
 	String msgContents;
 	

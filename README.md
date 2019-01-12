@@ -23,13 +23,25 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Setup device
-1. Flash SPIFFs to upload sonoff/data/*.json. You may modify contents but not necessary.
+1. Flash SPIFFs to upload the configuration file - sonoff_LightSwitch/data/*.json. You may modify the contents prior to upload but not necessary.
 
-2. To enable/disable serial debug output, uncomment/comment first line in sonoff/src/User.h.
+2. Flash firmware.
 
-3. Flash firmware.
+3. Device will initially come up with its own *Access Point* called esp8266-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi.  
+   See section **Finding device IP Address**
 
-All future updates can now be performed over the air no need for USB assuming above was successful.
+4. Once device is connected to WiFi, connect to it using browser. 
+
+5. Configure device parameters on web page and save.  
+   Once saved, device will reboot and reconnect to your WiFi.
+
+6. Test device using MQTT messages, once ok turn off debugging and upload new compiled firmware - see section **Debug - Serial/Telnet output**.
+
+- Above steps above should be done over USB-->Serial interface until device is fully functioning.
+
+- Future firmware updates can be performed over the air no need for USB-->Serial interface.
+
+
 
 -------------------------------------------------------------------------------------------------------------
 ## Usage
@@ -45,12 +57,12 @@ All future updates can now be performed over the air no need for USB assuming ab
 
 -------------------------------------------------------------------------------------------------------------
 ## Sample openHAB "item" for Broker/MQTT messages. 
-	- Switch Power "Power" {mqtt=">[brk:cmnd/Light:command:*:default], <[brk:stat/Light:state:default]",autoupdate="false"}
+	- Switch Power "Power" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}
 The inbound "<" message helps to keep openHAB in sync with device status.
 
 -------------------------------------------------------------------------------------------------------------
 ## OTA Updates
-Once device is connected to your WiFi, find its IP and connect to it. User/Password are stored in sonoff/src/User.h so you can always modify and flash new firmware easily.
+Once device is connected to your WiFi, find its IP and connect to it. User/Password are stored in sonoff_LightSwitch/src/User.h so you can always modify and flash new firmware easily.
 
 -------------------------------------------------------------------------------------------------------------
 - I am simply reusing other peoples amazing work for instance the following libraries PubSubClient and WifiManager.
