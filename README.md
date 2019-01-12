@@ -23,7 +23,7 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Setup device
-1. Flash SPIFFs to upload the configuration file - sonoff_LightSwitch/data/*.json files. You may modify the contents prior to upload but not necessary
+1. Flash SPIFFs to upload the configuration files - sonoff_LightSwitch/data/*.json. You may modify the contents prior to upload but not necessary
 
 2. Flash firmware
 
