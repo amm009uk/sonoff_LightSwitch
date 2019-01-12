@@ -55,9 +55,9 @@
 		- Touch button LED is on when light on
 
 -------------------------------------------------------------------------------------------------------------
-## Sample openHAB "item" for Broker/MQTT messages. 
-	- Switch Power "Power" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}
-The inbound "<" message helps to keep openHAB in sync with device status.
+## Sample openHAB "item" for Broker/MQTT messages.
+	- Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}<br/>
+    The inbound "<" message helps to keep openHAB in sync with device status.
 
 -------------------------------------------------------------------------------------------------------------
 ## OTA Updates
