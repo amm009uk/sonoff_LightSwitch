@@ -43,27 +43,53 @@
 - Future firmware updates can be performed over the air no need for USB-->Serial interface
 
 -------------------------------------------------------------------------------------------------------------
-## Usage
-1. Device will initially come up with its own *Access Point* called ITEAD-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot
-
-2. On bootup, device will connect to your WiFi. Find its IP address through your router and connect to it. Configure all parameters and once saved, device will reboot
-
-3. Device can be controlled with MQTT messages and onboard touch button
-
-4. Onboard LED:  
-		- WiFi LED is on when light is off  
-		- Touch button LED is on when light on
-
--------------------------------------------------------------------------------------------------------------
 ## Sample openHAB "item" for Broker/MQTT messages  
 	- Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}  
     The inbound "<" message helps to keep openHAB in sync with device status
 
 -------------------------------------------------------------------------------------------------------------
-## OTA Updates
-Once device is connected to your WiFi, find its IP and connect to it. User/Password are stored in sonoff_LightSwitch/src/User.h so you can always modify and flash new firmware easily
+## Finding device IP Address
+	To get the device IP address you have the following options:
+	1. Look at the Serial output where it will show on startup (assuming you have debug output turned on)
+	2. Look in your router
+	3. Try an mDNS browser app but this often takes time to get the ESP showing up
+
+	4. If already connected to WiFi and MQTT Broker, you can send a blank MQTT message as defined in user.h at "IP_REQUEST".  
+     Each device will respond with a MQTT message such as defined with "IP/REPLY/<deviceID>" with the IP address in the payload.
 
 -------------------------------------------------------------------------------------------------------------
-- I am simply reusing other peoples amazing work for instance the following libraries PubSubClient and WifiManager
+## Debug - Serial/Telnet output
+	You have two options after turning on SERIAL_DEBUG within MultiSensor\src\User.h:
+		- Serial USB if connected
+		- Telnet if connected
 
-- My development environment is Atom with its builtin PlatformIO toolset. Its a fantastic build and debug environment
+**Do not leave SERIAL_DEBUG enabled for normal use**
+
+-------------------------------------------------------------------------------------------------------------
+## Pin Connections 
+Project was developed on a **Wemos D1 mini pro** board. I like this boards form-factor and its ease of use. 
+
+Sensors can be hooked up as follows:
+- D1 Pin for Temperature sensor (DHT22)
+- D2 Pin for Motion sensor (HC-SR501)
+- D5 Pin for door/window sensor 1 (Reed)
+- D6 Pin for door/window sensor 2
+- D7 Pin for door/window sensor 3
+- D8 Pin for door/window sensor 4
+
+These can be reconfigured within MultiSensor\src\User.h.
+
+-------------------------------------------------------------------------------------------------------------
+## OTA Firmware Updates
+Once device is connected to your WiFi, find its IP and connect to it through using a Browser. User/Password are stored in Multiensor/src/User.h and you can always modify and flash new firmware to change it. Follow on screen firmware update instructions to flash new firmware.
+
+-------------------------------------------------------------------------------------------------------------
+- I am simply reusing other peoples amazing work for instance the following libraries:
+	- [PubSubClient](https://github.com/knolleary/pubsubclient)
+	- [WifiManager](https://github.com/tzapu/WiFiManager)
+	- [RemoteDebug](https://github.com/JoaoLopesF/RemoteDebug)
+	- [ArduinoJson](https://github.com/bblanchon/ArduinoJson)
+	- [Adafruit Unified Sensor](https://github.com/adafruit/Adafruit_Sensor)
+	- [DHT sensor library](https://github.com/adafruit/DHT-sensor-library)
+
+- My development environment is Atom with its builtin PlatformIO toolset. Its a fantastic build and debug environment.
