@@ -23,7 +23,7 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Setup device
-1. Flash SPIFFs to upload the configuration file - sonoff_LightSwitch/data/*.json. You may modify the contents prior to upload but not necessary.
+1. Flash SPIFFs to upload the configuration file - sonoff_LightSwitch/data/*.json files. You may modify the contents prior to upload but not necessary.
 
 2. Flash firmware.
 
@@ -35,7 +35,8 @@
 5. Configure device parameters on web page and save.  
    Once saved, device will reboot and reconnect to your WiFi.
 
-6. Test device using MQTT messages, once ok turn off debugging and upload new compiled firmware - see section **Debug - Serial/Telnet output**.
+6. Test device using MQTT messages, once ok turn off debugging and upload new compiled firmware.
+   See section **Debug - Serial/Telnet output**.
 
 - Above steps above should be done over USB-->Serial interface until device is fully functioning.
 
