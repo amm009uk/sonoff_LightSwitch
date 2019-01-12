@@ -59,9 +59,9 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Debug - Serial/Telnet output
-	You have two options after turning on SERIAL_DEBUG within sonoff_LightSwitch\src\User.h:
-		- Serial USB if connected
-		- Telnet if connected
+You have two options after turning on SERIAL_DEBUG within sonoff_LightSwitch\src\User.h:
+		Serial USB if connected
+		Telnet if connected
 
 **Do not leave SERIAL_DEBUG enabled for normal use**
 
@@ -70,7 +70,8 @@
 Once device is connected to your WiFi, find its IP and connect to it through using a Browser. User/Password are stored in sonoff_LightSwitch/src/User.h and you can always modify and flash new firmware to change it. Follow on screen firmware update instructions to flash new firmware.
 
 -------------------------------------------------------------------------------------------------------------
-- I am simply reusing other peoples amazing work for instance the following libraries:
+##Credits
+I am simply reusing other peoples amazing work for instance the following libraries:
 	- [PubSubClient](https://github.com/knolleary/pubsubclient)
 	- [WifiManager](https://github.com/tzapu/WiFiManager)
 	- [RemoteDebug](https://github.com/JoaoLopesF/RemoteDebug)
