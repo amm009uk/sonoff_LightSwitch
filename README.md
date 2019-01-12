@@ -48,9 +48,11 @@
 
 2. On bootup, device will connect to your WiFi. Find its IP address through your router and connect to it. Configure all parameters and once saved, device will reboot.
 
-3. Device can be controlled with MQTT messages, onboard button or adding a switch between GPIO-14 and GND.
+3. Device can be controlled with MQTT messages and onboard touch button.
 
-4. Onboard LED light will inidicate when power is on.
+4. Onboard LED:
+		If WiFi LED is on then light is off
+		Touch button LED will be on with light on
 
 - An alternative method for finding your device is to scan your mDNS network
 
