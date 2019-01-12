@@ -155,15 +155,8 @@ void setup() {
 	pinMode(LED_PIN, OUTPUT);                                          // LED
 	pinMode(RELAY_PIN, OUTPUT);                                        // Relay for power
 	pinMode(TOUCH_PIN, INPUT);                                         // Onboard momentary switch
-  
-  delay(10);
-  
-	// Turn off power initially and initialise buttons
-//	digitalWrite(LED_PIN, HIGH);
-	digitalWrite(RELAY_PIN, LOW);
-  digitalWrite(TOUCH_PIN, HIGH);
-  
-  delay(10);
+    
+  delay(100);
   
 	// Initialise from previous state
 	if (state == 1) {
@@ -173,7 +166,7 @@ void setup() {
 		digitalWrite(LED_PIN, LOW);
 		digitalWrite(RELAY_PIN, LOW);
 	}
-		
+	
 #ifdef SERIAL_DEBUG
   debugln("************ Setup() finished *************\n\n");
 #endif
@@ -248,12 +241,12 @@ void relayToggle() {                                                 // Toggle r
 		digitalWrite(LED_PIN, HIGH);
 		digitalWrite(RELAY_PIN, HIGH);
 		MQTTclient.publish(mqtt_outTopic, "ON");
-		state = 0;
+		state = 1;
 	} else {
 			digitalWrite(LED_PIN, LOW);
 			digitalWrite(RELAY_PIN, LOW);
 			MQTTclient.publish(mqtt_outTopic, "OFF");
-			state = 1;
+			state = 0;
 	}
 	
 	saveState();

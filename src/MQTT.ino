@@ -10,7 +10,7 @@ boolean MQTTconnect() {
   	MQTTclient.subscribe(IP_REQUEST);
   	
 #ifdef SERIAL_DEBUG
-    debug("..MQTT connected and subscribed to "); debugln(mqtt_inTopic);
+   debug("..MQTT connected and subscribed to "); debugln(mqtt_inTopic);
 #endif
   } else {
 #ifdef SERIAL_DEBUG
