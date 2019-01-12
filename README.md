@@ -35,14 +35,12 @@
 5. Configure device parameters on web page and save.  
    Once saved, device will reboot and reconnect to your WiFi.
 
-6. Test device using MQTT messages, once ok turn off debugging and upload new compiled firmware.
+6. Test device using MQTT messages and touch button. Once ok turn off debugging and upload new compiled firmware.
    See section **Debug - Serial/Telnet output**.
 
 - Above steps above should be done over USB-->Serial interface until device is fully functioning.
 
 - Future firmware updates can be performed over the air no need for USB-->Serial interface.
-
-
 
 -------------------------------------------------------------------------------------------------------------
 ## Usage
