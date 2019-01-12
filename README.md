@@ -4,6 +4,7 @@
 
 ### I was forunate to get a version a version 1.0 board requiring no soldering. Then I followed [DrZzs](https://www.youtube.com/watch?v=yj3_6oKUh1w) video to learn how to enter into flash mode. This takes some practice and I didn't bother with putty.
 
+### Flashing through atom/platformio, everything is tied together nicely.
 
 -------------------------------------------------------------------------------------------------------------
 ## Features
