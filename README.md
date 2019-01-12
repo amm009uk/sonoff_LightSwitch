@@ -44,8 +44,8 @@
 
 -------------------------------------------------------------------------------------------------------------
 ## Sample openHAB "item" for Broker/MQTT messages  
-Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}  
-The inbound "<" message helps to keep openHAB in sync with device status
+	Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}  
+  The inbound "<" message helps to keep openHAB in sync with device status
 
 -------------------------------------------------------------------------------------------------------------
 ## Finding device IP Address
