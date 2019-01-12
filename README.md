@@ -27,15 +27,15 @@
 
 2. Flash firmware
 
-3. Device will initially come up with its own *Access Point* called esp8266-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi
+3. Device will initially come up with its own *Access Point* called esp8266-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi  
    See section **Finding device IP Address**
 
 4. Once device is connected to WiFi, connect to it using browser
 
-5. Configure device parameters on web page and save
+5. Configure device parameters on web page and save  
    Once saved, device will reboot and reconnect to your WiFi
 
-6. Test device using MQTT messages and touch button. Once ok turn off debugging and upload new compiled firmware
+6. Test device using MQTT messages and touch button. Once ok turn off debugging and upload new compiled firmware  
    See section **Debug - Serial/Telnet output**
 
 - Above steps above should be done over USB-->Serial interface until device is fully functioning
@@ -50,13 +50,13 @@
 
 3. Device can be controlled with MQTT messages and onboard touch button
 
-4. Onboard LED:
-		- WiFi LED is on when light is off
+4. Onboard LED:  
+		- WiFi LED is on when light is off  
 		- Touch button LED is on when light on
 
 -------------------------------------------------------------------------------------------------------------
-## Sample openHAB "item" for Broker/MQTT messages.
-	- Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}
+## Sample openHAB "item" for Broker/MQTT messages  
+	- Switch LivingRoomLight "Living Room Light" {mqtt=">[brk:cmnd/Light/LivingRoom:command:*:default], <[brk:stat/Light/LivingRoom:state:default]",autoupdate="false"}  
     The inbound "<" message helps to keep openHAB in sync with device status
 
 -------------------------------------------------------------------------------------------------------------
