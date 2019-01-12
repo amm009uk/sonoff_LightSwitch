@@ -200,7 +200,6 @@ void saveChanges() {
 	delay(50);
   saveConfig();
   httpServer.send(200,"text/html", "<META http-equiv=\"refresh\" content=\"15;URL=/\">Changes saved! Rebooting please wait this page will refresh...");
-//  delay(50);
   reboot();
   
 } // saveChanges()

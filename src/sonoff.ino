@@ -58,7 +58,7 @@ void setup() {
 
   #ifdef SERIAL_DEBUG
     Serial.begin(115200);
-    delay(5000);
+    delay(100);
   #endif
 
   #ifdef SERIAL_DEBUG
@@ -156,16 +156,17 @@ void setup() {
 	pinMode(RELAY_PIN, OUTPUT);                                        // Relay for power
 	pinMode(TOUCH_PIN, INPUT);                                         // Onboard momentary switch
     
-  delay(100);
-  
+  delay(50);
+
 	// Initialise from previous state
 	if (state == 1) {
 		digitalWrite(LED_PIN, HIGH);
 		digitalWrite(RELAY_PIN, HIGH);
-	}	else {
-		digitalWrite(LED_PIN, LOW);
-		digitalWrite(RELAY_PIN, LOW);
 	}
+//	else {
+//		digitalWrite(LED_PIN, LOW);
+//		digitalWrite(RELAY_PIN, LOW);
+//	}
 	
 #ifdef SERIAL_DEBUG
   debugln("************ Setup() finished *************\n\n");
@@ -211,7 +212,7 @@ void relayOn() {                                                     // Turn on 
 	state = 1;
 	saveState();
 	
-	delay(100);
+	delay(50);
 	
 } // relayOn()
 
@@ -227,7 +228,7 @@ void relayOff() {                                                    // Turn off
 	state = 0;
 	saveState();
 	
-	delay(100);
+	delay(50);
 	
 } // relayOff()
 
@@ -251,7 +252,7 @@ void relayToggle() {                                                 // Toggle r
 	
 	saveState();
 	
-	delay(100);
+	delay(50);
 	
 } // relayToggle()
 
@@ -275,7 +276,7 @@ void loop() {
   } else {
     // MQTT Client connected so check for MQTT activity
     MQTTclient.loop();
-    delay(100);
+    delay(50);
   }
 
 	//
@@ -310,31 +311,7 @@ void loop() {
   }
   // save the reading.  Next time through the loop, it'll be the lastButtonState:
   lastButtonState = reading;
- 
-	//
-	// Handle reboot
-	//
-	if (rebootAt != 0) {
-	  long millisecs = millis();
 
-  	String systemUpTimeMn;
-  	String systemUpTimeHr;
-//  String systemUpTimeDy;
-
-  	systemUpTimeMn = int((millisecs / (1000 * 60)) % 60);
-  	systemUpTimeHr = int((millisecs / (1000 * 60 * 60)) % 24 );
-//  systemUpTimeDy = int((millisecs / (1000 * 60 * 60 * 24)) % 365);
-
-#ifdef SERIAL_DEBUG
-//  debug("rebootAt: "); debug((String)rebootAt); debug("............. Min: "); debug(systemUpTimeMn); debug(" Hr: "); debugln(systemUpTimeHr);
-#endif
-
-  	if (systemUpTimeHr.toInt() == rebootAt) {
-    	MQTTclient.publish("/SH/Rebooted", deviceID);
-    	reboot();
-  	}
-  }
-  
 } // loop()
 
 void debug(String message) {
