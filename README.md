@@ -27,7 +27,7 @@
 
 2. Flash firmware.
 
-3. Device will initially come up with its own *Access Point* called esp8266-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi.<br/>  
+3. Device will initially come up with its own *Access Point* called esp8266-xxxxxxx. Connect to this and configure WiFi parameters. Once saved, device will reboot and connect to your WiFi.<br/>
    See section **Finding device IP Address**
 
 4. Once device is connected to WiFi, connect to it using browser. 
@@ -51,10 +51,8 @@
 3. Device can be controlled with MQTT messages and onboard touch button.
 
 4. Onboard LED:<br/>
-		- If WiFi LED is on then light is off
-		- Touch button LED will be on with light on
-
-- An alternative method for finding your device is to scan your mDNS network
+		- WiFi LED is on when light is off<br/>
+		- Touch button LED is on when light on
 
 -------------------------------------------------------------------------------------------------------------
 ## Sample openHAB "item" for Broker/MQTT messages. 
